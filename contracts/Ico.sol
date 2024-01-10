@@ -13,12 +13,19 @@ contract Ico {
 
     // Events to track key activities
     event Buy(uint256 amount, address buyer);
+    event Finalize(uint256 tokensSold, uint256 ethRaised);
 
     // Constructor function to initialize the ICO contract
     constructor(Token _token, uint256 _price, uint256 _maxTokens) {
         token = _token;             // Set the token contract
         price = _price;             // Set the initial token price
         maxTokens = _maxTokens;     // Set the maximum number of tokens available for sale
+    }
+
+    // Fallback function to allow purchasing tokens by sending Ether directly to the contract
+    receive() external payable {
+        uint256 amount = msg.value / price;        // Calculate the number of tokens to be bought
+        buyTokens(amount * 1e18);                  // Buy tokens with the calculated amount
     }
 
     // Function to buy tokens with Ether

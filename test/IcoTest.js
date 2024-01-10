@@ -75,11 +75,6 @@ describe('Ico', () => {
         expect(await token.balanceOf(user1.address)).to.equal(amount);
       });
 
-      // Check if ether balance is updated correctly
-      it('updates contracts ether balance', async () => {
-        expect(await ethers.provider.getBalance(ico.address)).to.equal(amount)
-      });
-
       // Check if 'tokensSold' is updated correctly
       it('updates tokensSold', async () => {
         expect(await ico.tokensSold()).to.equal(amount);
@@ -99,6 +94,34 @@ describe('Ico', () => {
       // Check if the contract rejects insufficient ETH
       it('rejects insufficient ETH', async () => {
         await expect(ico.connect(user1).buyTokens(tokens(10), { value: 0 })).to.be.reverted;
+      });
+
+    });
+
+  });
+
+  // Test suite for sending ETH to the contract
+  describe('Sending ETH', () => {
+    let transaction, result;
+    let amount = ether(10);
+
+    // Sub-suite for successful ETH sending
+    describe('Success', () => {
+
+      // Before each test case, send ETH from user1 to the ICO contract
+      beforeEach(async () => {
+        transaction = await user1.sendTransaction({ to: ico.address, value: amount });
+        result = await transaction.wait();
+      });
+
+      // Check if the contract's ETH balance is updated correctly
+      it('updates contracts ether balance', async () => {
+        expect(await ethers.provider.getBalance(ico.address)).to.equal(amount);
+      });
+
+      // Check if the user's token balance is updated correctly
+      it('updates user token balance', async () => {
+        expect(await token.balanceOf(user1.address)).to.equal(amount);
       });
     });
   });
