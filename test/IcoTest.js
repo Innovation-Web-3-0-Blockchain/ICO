@@ -123,6 +123,90 @@ describe('Ico', () => {
       it('updates user token balance', async () => {
         expect(await token.balanceOf(user1.address)).to.equal(amount);
       });
+
     });
   });
+
+  // Test suite for updating the ICO price
+  describe('Updating Price', () => {
+    let transaction, result;
+    let price = ether(2);
+
+    // Sub-suite for successful price update
+    describe('Success', () => {
+
+      // Before each test case, update the ICO price
+      beforeEach(async () => {
+        transaction = await ico.connect(deployer).setPrice(ether(2));
+        result = await transaction.wait();
+      });
+
+      // Check if the price is updated correctly
+      it('updates the price', async () => {
+        expect(await ico.price()).to.equal(ether(2));
+      });
+
+    });
+
+    // Sub-suite for failed price update (non-owner trying to update)
+    describe('Failure', () => {
+
+      // Check if non-owner is prevented from updating the price
+      it('prevents non-owner from updating price', async () => {
+        await expect(ico.connect(user1).setPrice(price)).to.be.reverted;
+      });
+
+    });
+
+  });
+
+  // Test suite for finalizing the sale
+  describe('Finalizing Sale', () => {
+    let transaction, result;
+    let amount = tokens(10);
+    let value = ether(10);
+
+    // Sub-suite for successful sale finalization
+    describe('Success', () => {
+
+      // Before each test case, buy tokens and then finalize the sale
+      beforeEach(async () => {
+        transaction = await ico.connect(user1).buyTokens(amount, { value: value });
+        result = await transaction.wait();
+
+        transaction = await ico.connect(deployer).finalize();
+        result = await transaction.wait();
+      });
+
+      // Check if remaining tokens are transferred to the owner
+      it('transfers remaining tokens to owner', async () => {
+        expect(await token.balanceOf(ico.address)).to.equal(0);
+        expect(await token.balanceOf(deployer.address)).to.equal(tokens(999990));
+      });
+
+      // Check if the ETH balance is transferred to the owner
+      it('transfers ETH balance to owner', async () => {
+        expect(await ethers.provider.getBalance(ico.address)).to.equal(0);
+      });
+
+      // Check if the 'Finalize' event is emitted with the correct arguments
+      it('emits Finalize event', async () => {
+        await expect(transaction).to.emit(ico, "Finalize")
+          .withArgs(amount, value);
+      });
+
+    });
+
+    // Sub-suite for failed sale finalization (non-owner trying to finalize)
+    describe('Failure', () => {
+
+      // Check if non-owner is prevented from finalizing the sale
+      it('prevents non-owner from finalizing', async () => {
+        await expect(ico.connect(user1).finalize()).to.be.reverted;
+      });
+
+    });
+
+  });
+  
 });
