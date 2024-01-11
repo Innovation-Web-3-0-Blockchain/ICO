@@ -1,15 +1,15 @@
 # ICO
 
-Welcome to the `ICO` repository. This project represents a ico (initial coin offering) with ethereum.
+Welcome to the `ICO` repository. This project represents a ico (initial coin offering) of a token while using ethereum blockchain.
 
 ## Table of Contents
 - [Verification and Security](#verification-and-security)
 - [Commented Code](#commented-code)
 - [Getting Started](#getting-started)
-- [Deployment](#deployment)
-- [Testing](#testing)
 - [Smart Contracts](#smart-contracts)
+- [Testing](#testing)
 - [Scripts](#scripts)
+- [Deploying Contracts](#deploying-contracts)
 - [Configuration](#configuration)
 - [Contribution](#contribution)
 - [License](#license)
@@ -33,7 +33,7 @@ To initiate the decentralized exchange interface, kindly adhere to the subsequen
 1. Clone this repository onto your local workstation.
 
 ```bash
-git clone https://github.com/Innovation-Web-3-0-Blockchain/Decentralized-Exchange.git
+git clone https://github.com/Innovation-Web-3-0-Blockchain/ICO.git
 ```
 
 2. Ensure you have `node.js` and `npm` installed in your environment.
@@ -44,20 +44,19 @@ git clone https://github.com/Innovation-Web-3-0-Blockchain/Decentralized-Exchang
 npm install
 ```
 
-A listing of project dependencies can be found within the `package.json` file.
+A listing of project dependencies can be found within the [Package.json](./package.json) file.
 
-## Deployment
+## Smart Contracts
 
+This project encompasses two principal contracts:
 
-```bash
+1. Initial Coin Offering Contract:
 
-```
+2. Token Contract:
+
+You cant view them in the [Contracts](./contracts) repository.
 
 ## Testing
-
-```bash
-
-```
 
 To initiate tests for the entire project, execute the ensuing command:
 
@@ -65,20 +64,27 @@ To initiate tests for the entire project, execute the ensuing command:
 npx hardhat test
 ```
 
-## Smart Contracts
-
-This project encompasses two principal contracts:
-
-1. 
-
-2. 
-
 ## Scripts
 
-Two pivotal scripts grace this project:
+this project is using only one script
 
-1. ``: 
+`1_deploy.js`: Orchestrates the deployment of smart contracts.
 
+you can view the script in the [Scripts](./scripts) repository.
+
+## Deploying Contracts
+
+1. Launch hardhat blockchain on your local machine by using the following command:
+
+```bash
+npx hardhat node
+```
+
+2. Deploy the contracts on your local blockchain by using running the `1_deploy.js` script:
+
+```bash
+npx hardhat run --network localhost scripts/1_deploy.js
+```
 
 ## Configuration
 
