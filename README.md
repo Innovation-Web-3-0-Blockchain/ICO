@@ -10,13 +10,13 @@ Welcome to the `ICO` repository. This project represents a ico (initial coin off
 - [Testing](#testing)
 - [Scripts](#scripts)
 - [Deploying Contracts](#deploying-contracts)
-- [Configuration](#configuration)
+- [Front End](#front-end)
+- [Further Insights](#further-insights)
+- [Legality](#legality)
+- [Project Updates](#project-updates)
 - [Contribution](#contribution)
 - [License](#license)
-- [Project Updates](#project-updates)
-- [Further Insights](#further-insights)
 - [Donations](#donations)
-
 
 ## Verification and Security
 
@@ -86,11 +86,36 @@ npx hardhat node
 npx hardhat run --network localhost scripts/1_deploy.js
 ```
 
-## Configuration
+if successful you should see in your console the address  that the contracts have been deployed to.
 
+## Front End 
 
-## Deploying Smart Contracts Testnet
+Make sure that your hardhat blockchain is still running in your local console before doing this command. Please see step 1 in the section above.
 
+Commence operation of the development server through the command:
+
+```bash
+npm run start
+```
+
+Upon successful execution, the application will be accessible via your browser at [http://localhost:3000](http://localhost:3000).
+
+## Further Insights
+
+For a more profound comprehension of Create React, React, and Fleek we direct your attention to the subsequent resources:
+
+- [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started)
+- [React Documentation](https://reactjs.org/)
+- [Fleek's Documentation](https://docs.fleek.co/)
+- [Etherjs Documentation]
+
+## Legality
+
+Please make sure that crowdfunding sale are legal in your juridiction. here a link of juridictions that do NOT accept ICO's
+
+## Project Updates
+
+As a dynamic project operating in the ever-evolving ecosystem of blockchain technology and the cryptospace, we are committed to continuous learning and improvement. We will regularly update this project to modernize and moderate it in line with the latest developments and best practices. Stay tuned for updates and improvements!
 
 ## Contribution
 
@@ -102,21 +127,6 @@ We extend our gratitude for exploring our project. Your interest is sincerely ap
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## Project Updates
-
-As a dynamic project operating in the ever-evolving ecosystem of blockchain technology and the cryptospace, we are committed to continuous learning and improvement. We will regularly update this project to modernize and moderate it in line with the latest developments and best practices. Stay tuned for updates and improvements!
-
-## Further Insights
-
-For a more profound comprehension of Create React, React, and Fleek we direct your attention to the subsequent resources:
-
-- [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started)
-- [React Documentation](https://reactjs.org/)
-- [Fleek's Documentation](https://docs.fleek.co/)
-
-## Legality
-
-Please make sure that crowdfunding sale are legal in your juridiction. here a link of juridictions that do NOT accept ICO's
 
 ## Donations
 
