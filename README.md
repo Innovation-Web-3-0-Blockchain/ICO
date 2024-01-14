@@ -1,6 +1,6 @@
 # ICO
 
-Welcome to the `ICO` repository. This project represents a ico (initial coin offering) of a token while using ethereum blockchain.
+Welcome to the `ICO` repository. This project represents an Initial Coin Offering (ICO) of a token using the Ethereum blockchain.
 
 ## Table of Contents
 - [Verification and Security](#verification-and-security)
@@ -12,7 +12,7 @@ Welcome to the `ICO` repository. This project represents a ico (initial coin off
 - [Deploying Contracts](#deploying-contracts)
 - [Front End](#front-end)
 - [Further Insights](#further-insights)
-- [Legality](#legality)
+- [Legal Compliance](#legal-compliance)
 - [Project Updates](#project-updates)
 - [Contribution](#contribution)
 - [License](#license)
@@ -32,29 +32,29 @@ To initiate the decentralized exchange interface, kindly adhere to the subsequen
 
 1. Clone this repository onto your local workstation.
 
-```bash
-git clone https://github.com/Innovation-Web-3-0-Blockchain/ICO.git
-```
+   ```bash
+   git clone https://github.com/Innovation-Web-3-0-Blockchain/ICO.git
+   ```
 
 2. Ensure you have `node.js` and `npm` installed in your environment.
 
 3. Proceed to install the requisite dependencies by executing the following command:
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
 A listing of project dependencies can be found within the [Package.json](./package.json) file.
 
 ## Smart Contracts
 
-This project encompasses two principal contracts:
+This project includesc two smart contracts:
 
-1. Initial Coin Offering Contract:
+1. **Initial Coin Offering Contract:** Allow participants to contribute funds and receive tokens in return. It defines the rules and mechanisms of the fundraising event.
 
-2. Token Contract:
+2. **Token Contract:** Represent the ICO token and defines his functionalities. 
 
-You cant view them in the [Contracts](./contracts) repository.
+You can view them in the [Contracts](./contracts) repository.
 
 ## Testing
 
@@ -66,67 +66,77 @@ npx hardhat test
 
 ## Scripts
 
-this project is using only one script
+This project is using only one script:
 
-`1_deploy.js`: Orchestrates the deployment of smart contracts.
+`1_deploy.js`: Used for the deployment of the smart contracts.
 
-you can view the script in the [Scripts](./scripts) repository.
+You can view the script in the [Scripts](./scripts) repository.
 
 ## Deploying Contracts
 
-1. Launch hardhat blockchain on your local machine by using the following command:
+1. Launch the Hardhat blockchain on your local machine by using the following command:
 
-```bash
-npx hardhat node
-```
+   ```bash
+   npx hardhat node
+   ```
 
-2. Deploy the contracts on your local blockchain by using running the `1_deploy.js` script:
+2. Deploy the contracts on your local blockchain by running the `1_deploy.js` script:
 
-```bash
-npx hardhat run --network localhost scripts/1_deploy.js
-```
+   ```bash
+   npx hardhat run --network localhost scripts/1_deploy.js
+   ```
 
-if successful you should see in your console the address  that the contracts have been deployed to.
+**Note:** If you have cloned this repository, you will be using the same contract addresses that the two contracts have been deployed to. If you would like to deploy the contracts to different addresses, please see the next section; otherwise, follow the next one.
 
-## Front End 
+## Configuration
 
-Make sure that your hardhat blockchain is still running in your local console before doing this command. Please see step 1 in the section above.
+If you want to deploy the contracts to different addresses, you will need to go to the [Configuration](./src/config.json) file and remove the token addresses that are in between the quotation marks. After it is done, you can paste the new addresses where the old ones were.
 
-Commence operation of the development server through the command:
+## Front End
+
+**Note:** Make sure that your Hardhat blockchain is still running in your local console before doing this command. Please see step 1 in the Deploying Contracts section.
+
+Commence the operation of the development server through the command:
 
 ```bash
 npm run start
 ```
 
-Upon successful execution, the application will be accessible via your browser at [http://localhost:3000](http://localhost:3000).
+Upon successful execution, the application will be accessible via your browser 
 
 ## Further Insights
 
-For a more profound comprehension of Create React, React, and Fleek we direct your attention to the subsequent resources:
+For a better comprehension of React, Fleek, and Ether.js, we direct your attention to the subsequent resources:
 
-- [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started)
+### React
+
 - [React Documentation](https://reactjs.org/)
+- [React Bootstrap Documentation](https://react-bootstrap.github.io/)
+- [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started)
+
+### Fleek
+
 - [Fleek's Documentation](https://docs.fleek.co/)
-- [Etherjs Documentation]
 
-## Legality
+### Ether.js
 
-Please make sure that crowdfunding sale are legal in your juridiction. here a link of juridictions that do NOT accept ICO's
+- [Ether.js Documentation](https://docs.ethers.org/v6/getting-started/)
+
+## Legal Compliance
+
+Please make sure that creating and investing in a crowdfunding sale is legal in your jurisdiction. Here's a quick [List](https://docs.google.com/document/d/1ajK7-eT-FTqGGoccjkixpGEcTas3nezz9p5gc0N6dgE/edit) from Dao Maker's website of countries that **DO** accept ICOs.
 
 ## Project Updates
 
-As a dynamic project operating in the ever-evolving ecosystem of blockchain technology and the cryptospace, we are committed to continuous learning and improvement. We will regularly update this project to modernize and moderate it in line with the latest developments and best practices. Stay tuned for updates and improvements!
+As a dynamic project operating in the ever-evolving ecosystem of blockchain technology and the cryptospace, we will regularly assess updates to ensure our project aligns with the latest developments and adheres to best practices.
 
 ## Contribution
 
 Community contributions are enthusiastically welcomed. Should you identify bugs, possess feature requests, or harbor intentions of enhancing the project, we extend an invitation to open an issue or submit a pull request.
 
-We extend our gratitude for exploring our project. Your interest is sincerely appreciated.
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 
 ## Donations
 
@@ -142,4 +152,4 @@ While we remain committed to providing valuable resources for aspiring blockchai
 
 We welcome contributions in Bitcoin and Monero, and you can send contributions by scanning one of the addresses in the QR codes at the following link: [Donate to Innovation Web 3.0](https://innovationweb3.github.io/)
 
-Thank you for your support and for being part of our community!
+We extend our gratitude for exploring our project and thank you for your support.
