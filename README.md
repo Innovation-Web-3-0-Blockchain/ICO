@@ -104,6 +104,10 @@ npm run start
 
 Upon successful execution, the application will be accessible via your browser 
 
+## Deploying Website 
+
+Should you want to deploy your ICO to a website you can use [Fleek](https://fleek.co/) with your Github directly.
+
 ## Further Insights
 
 For a better comprehension of React, Fleek, and Ether.js, we direct your attention to the subsequent resources:
