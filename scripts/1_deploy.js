@@ -26,11 +26,18 @@ async function main() {
   console.log(`Ico deployed to: ${ico.address}\n`);
 
   // Transfer tokens from the Token contract to the ICO contract
-  const transaction = await token.transfer(ico.address, ethers.utils.parseUnits(MAX_SUPPLY, 'ether'));
-  await transaction.wait();
+  const transferTransaction = await token.transfer(ico.address, ethers.utils.parseUnits(MAX_SUPPLY, 'ether'));
+  await transferTransaction.wait();
 
   // Log that tokens have been transferred to the ICO
-  console.log(`Tokens transferred to Ico\n`);
+  console.log(`Tokens transferred to Ico\n`);;
+
+  // Start the whitelist sale automatically in the ICO contract
+  const startWhitelistSaleTransaction = await ico.startWhitelistSale();
+  await startWhitelistSaleTransaction.wait();
+
+  // Log that the whitelist sale has started
+  console.log(`Whitelist sale started in Ico\n`);
 }
 
 // Execute the main function and handle any errors

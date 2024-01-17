@@ -15,11 +15,11 @@ const NavigationBar = () => {
         src={logo} 
         width="80" 
         height="80"
-        className="d-inline-block alihn-top mx+3" // Apply Bootstrap classes for styling
+        className="d-inline-block alihn-top mx-3" // Apply Bootstrap classes for styling
       />
 
       {/* Display the brand name with a link (CADEX ICO Crowdsale) */}
-      <Navbar.Brand href="#">CADEX ICO Crowdsale</Navbar.Brand>
+      <Navbar.Brand href="#">CADex ICO Crowdsale</Navbar.Brand>
     </Navbar>
   );
 }

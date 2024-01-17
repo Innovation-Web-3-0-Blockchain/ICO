@@ -82,10 +82,10 @@ function App() {
       {/* Black bar at the top with specified width and height */}
       <div style={{ background: 'black', height: '150px', width: '100%' }}></div>
 
-      <Container>
+      <Container style={{ marginTop: '30px' }}>
         <NavigationBar />
 
-        <h1 className='my-4 text-center'>Introducing CADEX Token!</h1>
+        <h1 className='my-4 text-center'>Introducing CADex Token!</h1>
 
         {/* Conditional rendering based on loading state */}
         {isLoading ? (
