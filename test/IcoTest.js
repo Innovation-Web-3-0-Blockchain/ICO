@@ -85,6 +85,8 @@ describe('Ico', () => {
         result = await transaction.wait();
       });
 
+      // Add check for whitelist user send ETH to ICO contract
+
       // Check if the contract's ETH balance is updated correctly
       it('updates contracts ether balance', async () => {
         expect(await ethers.provider.getBalance(ico.address)).to.equal(amount);
@@ -93,6 +95,11 @@ describe('Ico', () => {
       // Check if the user's token balance is updated correctly
       it('updates user token balance', async () => {
         expect(await token.balanceOf(user1.address)).to.equal(amount);
+
+      // Add failure case for user not having enough ETH to send to contract
+
+      // Add failure case for non-white listed user trying to send eth to the ICO contract
+
       });
     });
   });
@@ -115,6 +122,8 @@ describe('Ico', () => {
         transaction = await ico.connect(user1).buyTokens(amount, { value: ether(10) });
         result = await transaction.wait();
       });
+
+      // Add check for whitelisted user buying ico tokens
 
       // Check if tokens are transferred correctly
       it('transfers tokens', async () => {
@@ -198,7 +207,7 @@ describe('Ico', () => {
         expect(await token.balanceOf(deployer.address)).to.equal(tokens(999990));
       });
 
-      // Check if the ETH balance is transferred to the owner
+      // Check if the ETH balance in ICO contract is transferred to the owner
       it('transfers ETH balance to owner', async () => {
         expect(await ethers.provider.getBalance(ico.address)).to.equal(0);
       });

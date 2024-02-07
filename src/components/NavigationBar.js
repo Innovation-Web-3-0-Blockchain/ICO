@@ -19,7 +19,7 @@ const NavigationBar = () => {
       />
 
       {/* Display the brand name with a link (CADEX ICO Crowdsale) */}
-      <Navbar.Brand href="#">CADex ICO Crowdsale</Navbar.Brand>
+      <Navbar.Brand href="#">CADEX Crowdsale</Navbar.Brand>
     </Navbar>
   );
 }
